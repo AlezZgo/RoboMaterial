@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/FirstFragment"
         android:name="com.alezzgo.robomaterial.ui.first.FirstFragment"
-        android:label="@string/first_fragment_label"
+        android:label="@string/connection"
         tools:layout="@layout/fragment_first">
 
         <action
