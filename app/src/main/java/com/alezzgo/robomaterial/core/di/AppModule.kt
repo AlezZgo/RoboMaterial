@@ -1,4 +1,4 @@
-package com.alezzgo.robomaterial.di
+package com.alezzgo.robomaterial.core.di
 
 import android.content.Context
 import com.alezzgo.robomaterial.core.ManageResources
@@ -16,6 +16,5 @@ object AppModule {
     fun provideManageResources(
         @ApplicationContext context: Context
     ): ManageResources = ManageResources.Base(context)
-
 
 }

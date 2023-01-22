@@ -11,25 +11,13 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.robomaterial.R
 import com.example.robomaterial.databinding.ActivityMainBinding
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import java.io.DataOutputStream
-import java.net.Socket
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-
-    var socket: Socket? = null
-    var dos: DataOutputStream? = null
-
-    var message: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         WindowCompat.setDecorFitsSystemWindows(window, false)
@@ -44,34 +32,8 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        binding.fab.setOnClickListener { view ->
-            connect()
-        }
     }
 
-    private fun connect() {
-
-        CoroutineScope(Dispatchers.IO).launch {
-            withContext(Dispatchers.IO) {
-
-                try {
-                    message = "ДАРОВ МИР"
-                    socket = Socket("192.168.1.53", 8000)
-                    dos = DataOutputStream(socket!!.getOutputStream());
-                    dos!!.writeUTF(message);
-
-                    dos!!.close();
-                    socket!!.close();
-
-                } catch (e: Exception) {
-                    Snackbar.make(binding.root, "Error: ${e.message}", Snackbar.LENGTH_LONG)
-                        .setAnchorView(R.id.fab).show()
-                }
-            }
-        }
-
-
-    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.

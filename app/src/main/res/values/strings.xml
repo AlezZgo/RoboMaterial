@@ -45,4 +45,7 @@
     </string>
     <string name="ip_address">IP Address</string>
     <string name="port">Port</string>
+    <string name="connect">Соединиться</string>
+    <string name="wrong_input_type_of_ip">Wrong input type of IP</string>
+    <string name="wrong_input_type_of_port">Wrong input type of port</string>
 </resources>
