@@ -1,4 +1,4 @@
-package com.example.robomaterial
+package com.alezzgo.robomaterial
 
 import org.junit.Test
 

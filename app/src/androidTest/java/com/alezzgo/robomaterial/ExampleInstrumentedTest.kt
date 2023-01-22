@@ -1,4 +1,4 @@
-package com.example.robomaterial
+package com.alezzgo.robomaterial
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
